@@ -1,0 +1,79 @@
+.containerQ{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divQuote{
+    padding: 20px;
+    border: solid 3px #6203AD;
+    border-radius: 15px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #6203AD;
+    font-weight: 500;
+}
+
+.divQuote p {
+    max-width: 350px;
+}
+
+.quote{
+    text-align: center;
+    font-weight: bold;
+}
+
+.author {
+    margin-block: 10px;
+    align-self: flex-end;
+    font-size: 13px;
+
+}
+
+.favorite{
+    margin-block: 10px;
+    font-size: 13px;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.buttonsQuotes{
+    display: flex;
+    gap: 20px;
+}
+
+.showQuote{
+    font-size: 1rem;
+}
+
+.quotes{
+    font-size: 2rem;
+}
+
+.randomQuotes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectQuotes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerQuotes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.favoriteContainer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
