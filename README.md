@@ -9,6 +9,7 @@ Pour installer :
 3- La base de donnée fonctionne via xampp (localhost - root - "")
     -> peut potentiellement marcher via mamp/wamp je pense
 
+4- Créer manuellement la base de donnée "quotes-app-entretien" au format utf8mb4_general_ci
 
 Port server : 3001
 Port client : 3000
