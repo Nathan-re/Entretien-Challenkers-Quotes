@@ -13,3 +13,10 @@ Pour installer :
 
 Port server : 3001
 Port client : 3000
+
+Pour lancer le serveur : 
+5- Se placer à la racine du projet et effectuer "npm run start"
+Pour lancer le client react : 
+6- Se placer dans le dossier client-app et effectuer "npm start"
+
+Une page se lance à l'adresse "http://localhost:3000/"
