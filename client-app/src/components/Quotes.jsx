@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-
 const client = axios.create({
     baseURL: "."
 });
@@ -17,17 +16,18 @@ class Quotes extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             text: "",
             Users: [],
             OneQuote: [],
             OneQuoteApi: []
         };
-
-
     }
 
+    componentDidMount() {
+    }
+    componentWillUnmount() {
+    }
 
     handleChange = (e) => {
         console.log(e.target.value);
@@ -37,19 +37,7 @@ class Quotes extends Component {
         });
     }
 
-    deleteQuote(id) {
-        console.log("test33");
-    }
-
-    modifyQuote(id) {
-        console.log("test34");
-    }
-
-    componentDidMount() {
-
-
-    }
-
+    //Non fonctionnel -> recupere une citation de la base de donnee et l'affiche
     showOneMyQuote() {
         console.log("içi")
         client.get('http://localhost:3001/api/getOneRandom')
@@ -67,6 +55,7 @@ class Quotes extends Component {
             })
     }
 
+    //Non fonctionnel -> recupere une citation kaamelott et l'affiche
     showApiQuote() {
         console.log("içi api kaa")
         client.get('http://localhost:3001/api/getApiKaa')
@@ -83,32 +72,7 @@ class Quotes extends Component {
 
             })
         
-    }
-
-
-
-    componentWillUnmount() {
-
-    }
-
-    handleSubmit = (e) => {
-        console.log("it works 2");
-        // Prevent the default submit and page reload
-        e.preventDefault();
-
-        const texte = {
-            texte: this.state.text
-        };
-
-
-        client
-            .post(`http://localhost:3001/api/testCreate/`, { texte })
-            .then(response => {
-                console.log(response);
-                // Handle response
-            })
-
-    }
+    }    
 
     render() {
         return (
@@ -163,13 +127,10 @@ class Quotes extends Component {
                             Parmi les citations de Kaamelott
                         </Button>
                     </div>
-                    
                 </div>
-                
             </div>
         );
     }
-
 
 }
 

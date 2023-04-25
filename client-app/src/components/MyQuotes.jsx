@@ -30,8 +30,6 @@ class MyQuotes extends Component {
 
 
     handleChange = (e) => {
-        console.log(e.target.value);
-
         this.setState({
             text: `${e.target.value}`
         });
@@ -40,30 +38,29 @@ class MyQuotes extends Component {
     }
 
     deleteQuote(id) {
-        console.log("deleteQuote");
+        //client.post('http://localhost:3001/api/delQuote', {})
     }
 
     modifyQuote(id) {
-        console.log("modifyQuote");
+        //client.post('http://localhost:3001/api/modifyQuote', {})
     }
 
     componentDidMount() {
-
         client.post('http://localhost:3001/api/createTables', {})
 
+        //Remplis la abse avec deux citations par defaut
         var texte = {
-            texte: "Ceci est le premier test"
+            texte: "React c'est génial !"
         };
-
 
         client
             .post(`http://localhost:3001/api/testCreate/`, { texte })
             .then(response => {
                 console.log(response);
-                // Handle response
             })
+
         texte = {
-            texte: "Ceci est le second test"
+            texte: "Node c'est génial !"
         };
 
 
@@ -74,27 +71,21 @@ class MyQuotes extends Component {
                 // Handle response
             })
 
-        console.log("test");
+        //récupère et affiche les posts
         this.getPosts();
-
 
     }
 
+    //récupère et affiche les posts
     getPosts = () => {
-        console.log("getPosts");
         client.get('http://localhost:3001/api/get')
             .then((response) => {
                 const result = response.data;
-
-                console.log(result);
-                
                 const users = result.map(u =>
 
                     <div className="enregistrementContainer" key={'div' + u.id}>
-
                         <div className="enregistrement">
                             <p key={u.id}>{u.quote}</p>
-
                             <div className="iconDiv">
 
                                 {/*<IconButton onClick={this.deleteQuote(u.id)}>*/}{/*Non fonctionnel -> erreur invalid hook calls même sans le onClick*/}
@@ -105,40 +96,25 @@ class MyQuotes extends Component {
                                 <ModeEditIcon onClick={this.modifyQuote(u.id)} />
                                 {/*</IconButton>*/}
                             </div>
-
-
-
                         </div>
                         <Divider style={{ width: '100%', borderBottomWidth: 2 }} />
                     </div >
-
-
                 )
-
                 this.setState({ users })
-
             });
     }
 
     handleSubmit = (e) => {
-        console.log("it works 2");
         const texte = {
             texte: this.state.text
         };
-        client
-            .post(`http://localhost:3001/api/testCreate/`, { texte })
 
+        client.post(`http://localhost:3001/api/testCreate/`, { texte })
         this.getPosts();
-
-
-
-
-
     }
 
     render() {
         return (
-
             <div className="containerMQ">
                 <h2 className="myQuotes">Mes citations</h2>
                 <div className="addQuote">
@@ -176,19 +152,14 @@ class MyQuotes extends Component {
                         disableUnderline={true}
                         placeholder="Ajouter une citation"
                     />
-
                 </div>
-                
                 <div className="stateUserContainer">
                     <Divider style={{ width: '100%', borderBottomWidth: 2 }} />
                     {this.state.users}
                 </div>
             </div>
-
         );
     }
-
-
 }
 
 export default MyQuotes;

@@ -1,4 +1,5 @@
-/*const mysql = require('mysql');
+/* Au final config directement dans server/index.js
+const mysql = require('mysql');
 const db = mysql.createConnection({
 host: "localhost",
 user: "root",
@@ -8,6 +9,7 @@ database:"678q4_entretien"
 */
 
 
+/* Essai avec mon compte infomaniak -> impossible de se connecter
 const mysql = require('mysql');
 const db = mysql.createConnection({
 host: "678q4.myd.infomaniak.com",
@@ -18,3 +20,4 @@ database:"678q4_entretien"
 
 
 module.exports = db;
+*/
